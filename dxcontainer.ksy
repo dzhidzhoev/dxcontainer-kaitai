@@ -51,6 +51,7 @@ types:
           cases:
            '"DXIL"': dxil_part
            '"ILDB"': dxil_part
+           '"ILDN"': ildn_part
            _: data_blob
             
     types:
@@ -59,6 +60,18 @@ types:
         - id: data
           size: _parent.size
        
+  ildn_part:
+    seq:
+      - id: flags
+        type: u2
+
+      - id: length
+        type: u2
+
+      - id: debug_name
+        type: strz
+        encoding: ASCII
+
   dxil_part:
     seq:
       - id: version
